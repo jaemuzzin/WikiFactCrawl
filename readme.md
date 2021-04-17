@@ -3,14 +3,14 @@ topics.  The facts are of form subject, property, object:
 
 For example: 
 
-Joan of England place of birth: Ch‚teau d'Angers
+Joan of England place of birth: Ch√¢teau d'Angers
 
 WikiFactCrawl uses a relevancy heuristic and a breadth-first search of the 
 public WikiData knowledge graph.  It locates related topics of interest and
 collects facts about those topics.
 
 Usage:
-`java -jar FactCrawl.jar wd:Q2013 3`
+```java -jar FactCrawl.jar wd:Q2013 3```
 where 
 *Q2013 is the WikiData entity id.  To find an id for any topic,
 visit wikidata.org and search for your topic.  The entity id
@@ -24,11 +24,14 @@ lots of results.
 Algorithm
 ================
 Parameters: 
+```
 root:= WikiData unique identifier for any topic
 maxDepth:= how many links away from root to crawl
+```
 
 Pseudo-Code:
-`Queue uncrawled:= []
+```
+Queue uncrawled:= []
 list crawled:= []
 list facts:= []
 uncrawled.enqueue(root)
@@ -42,7 +45,7 @@ while uncrawled has items
     facts.add(all facts of item)
 loop
 print facts
-`
+```
 Output:
 The list of facts about topics related to root
 
