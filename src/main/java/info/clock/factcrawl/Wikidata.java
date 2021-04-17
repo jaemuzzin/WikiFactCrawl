@@ -194,7 +194,14 @@ public class Wikidata {
                 + "SELECT distinct ?pLabel ?valueLabel\n"
                 + "WHERE\n"
                 + "{  \n"
-                + "           {" + item + " ?prop ?value } . {?p wikibase:directClaim ?prop} . SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\n"
+                + "           {" + item + " ?prop ?value } . "
+                + "           MINUS {" + item + " wdt:P373 ?value } . "
+                + "           MINUS {" + item + " wdt:P1343 ?value } . "
+                + "{{?p wikibase:directClaim ?prop} . "
+                + "FILTER NOT EXISTS {?p wikibase:propertyType wikibase:ExternalId}. "
+                + "FILTER NOT EXISTS {?p wikibase:propertyType wikibase:CommonsMedia} ."
+                + "FILTER NOT EXISTS {?p wikibase:propertyType wikibase:Url}} ."
+                + "SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }\n"
                 + "}\n"
                 + "order by ?pLabel";
 
