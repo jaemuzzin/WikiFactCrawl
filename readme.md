@@ -10,16 +10,15 @@ public WikiData knowledge graph.  It locates related topics of interest and
 collects facts about those topics.
 
 Usage:
-java -jar FactCrawl.jar wd:Q2013 3
-[where 
+`java -jar FactCrawl.jar wd:Q2013 3`
+where 
 *Q2013 is the WikiData entity id.  To find an id for any topic,
 visit wikidata.org and search for your topic.  The entity id
 is shown at the top of the page
-
 *3 is the maximum depth of the crawl. Please note the expansion of searching
 is nearly exponential and this number does not need to be high to return
 lots of results.
-]
+
 
 
 Algorithm
@@ -29,7 +28,7 @@ root:= WikiData unique identifier for any topic
 maxDepth:= how many links away from root to crawl
 
 Pseudo-Code:
-Queue uncrawled:= []
+`Queue uncrawled:= []
 list crawled:= []
 list facts:= []
 uncrawled.enqueue(root)
@@ -43,7 +42,7 @@ while uncrawled has items
     facts.add(all facts of item)
 loop
 print facts
-
+`
 Output:
 The list of facts about topics related to root
 
