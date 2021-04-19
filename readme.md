@@ -9,16 +9,17 @@ WikiFactCrawl uses a relevancy heuristic and a breadth-first search of the
 public WikiData knowledge graph.  It locates related topics of interest and
 collects facts about those topics.
 
-Usage:
-```java -jar FactCrawl.jar wd:Q2013 3```
+This source code is for the Java library.
+
+The library is currently available online as a rest endpoint.:
+```http://molten-method-309519.uc.r.appspot.com/q?wikiDataID=wd:Q42&maxDepth=2```
 where 
-*Q2013 is the WikiData entity id.  To find an id for any topic,
+*Q42 is the WikiData entity id.  To find an id for any topic,
 visit wikidata.org and search for your topic.  The entity id
 is shown at the top of the page
 *3 is the maximum depth of the crawl. Please note the expansion of searching
 is nearly exponential and this number does not need to be high to return
 lots of results.
-
 
 
 Algorithm
